@@ -53,7 +53,7 @@ chn = mcmc(model, line, inits, 10000, burnin=1000, chains=3)
 
 describe(chn)
 
-chn2 = MCMCChains.Chains(chn.value, Symbol.(chn.names))
+chn2 = MCMCChains.Chains(chn.value, String.(chn.names))
 
 MCMCChains.describe(chn2)
 

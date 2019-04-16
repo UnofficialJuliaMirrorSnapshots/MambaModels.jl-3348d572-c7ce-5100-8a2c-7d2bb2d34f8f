@@ -1,6 +1,6 @@
 #using Distributed
 #@everywhere using MambaModels
-using MambaModels, MCMCChains
+using MambaModels
 
 globe_toss = Dict{Symbol, Any}(
   :w => [6, 7, 5, 6, 6],
@@ -29,7 +29,7 @@ chn = mcmc(model, globe_toss, inits, 10000, burnin=2500, thin=1, chains=2);
 
 describe(chn)
 
-chn2 = MCMCChains.Chains(chn.value, Symbol.(chn.names))
+chn2 = MCMCChains.Chains(chn.value, String.(chn.names))
 
 MCMCChains.describe(chn2)
 

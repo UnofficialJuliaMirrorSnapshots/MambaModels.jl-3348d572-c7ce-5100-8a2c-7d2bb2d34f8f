@@ -1,6 +1,6 @@
 #using Distributed
 #@everywhere using MambaModels
-using MambaModels, MCMCChains
+using MambaModels
 
 # Data
 
@@ -43,7 +43,7 @@ describe(chn)
 
 # Convert to MCMCChains.Chains object
 
-chn2 = MCMCChains.Chains(chn.value, Symbol.(chn.names))
+chn2 = MCMCChains.Chains(chn.value, String.(chn.names))
 
 # Describe the MCMCChains
 
